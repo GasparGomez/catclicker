@@ -1,3 +1,38 @@
+let data = {
+    gatoActivo: 0,
+    gatos: [
+        {
+            name: "Ismael",
+            content: "gato ismael gato ismael",
+            image: "img/floppa.jpg",
+            nclicks: 0
+        },
+        {
+            name: "Oscar",
+            content: "ole el oscar",
+            image: "img/oscar.png",
+            nclicks: 0
+        },
+        {
+            name: "Fabian",
+            content: "fabian mangui :)",
+            image: "img/fabian.jpg",
+            nclicks: 0
+        },
+        {
+            name: "Gomi",
+            content: "mapache",
+            image: "img/gomielmapache.jpg",
+            nclicks: 0
+        }, {
+            name: "Marti",
+            content: "literalmente marti",
+            image: "img/bingus.jpg",
+            nclicks: 0
+        }
+    ]
+};
+
 function addCats() {
     htmlStr = "";
     for (let i = 0; i < data.gatos.length; i++) {
