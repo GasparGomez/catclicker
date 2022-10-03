@@ -7,7 +7,7 @@
         <title>Cat Clicker v3</title>
         <script>
             let data = {
-                gatoActivo:0,
+                gatoActivo: 0,
                 gatos: [
                     {
                         name: "Ismael",
@@ -44,9 +44,11 @@
     </head>
     <body>
         <ul id="llista"></ul>
-        <h1 id="nombreGato"></h1>
-        <img id="gato" width="350px">
-        <h3 id="contador"></h2>
+        <div id="gato">
+            <h1 id="nombreGato"></h1>
+            <img id="imgGato" width="350px">
+            <h3 id="contador"></h2>
+        </div>
 
         <script>
             function addCats() {
@@ -62,8 +64,10 @@
             }
             addCats();
 
+            pintarCatActive();
+
             let gato = document.getElementById("llista");
-            
+
             gato.addEventListener("click", function (e) {
                 console.log(e);
                 console.log(e.target);
@@ -73,17 +77,22 @@
             });
 
             function pintarCatActive() {
-                let idGato = data.gatoActivo;
+                    let image = document.getElementById("imgGato");
 
-                if (idGato != null) {
-                    let image = document.getElementById("gato");
-
-                    image.setAttribute("src", data.gatos[idGato].image);
-                    let contador = document.getElementById("contador").innerText = data.gatos[idGato].nclicks.toString();
-                }
+                    image.setAttribute("src", data.gatos[data.gatoActivo].image);
+                    pintarContador(data.gatoActivo);
+                    let contador = document.getElementById("contador").innerText = data.gatos[data.gatoActivo].nclicks.toString();
             }
 
-            document.getElementById("gato");
+            function pintarContador(idG) {
+                let contador = document.getElementById("contador").innerText = data.gatos[idG].nclicks.toString();
+            }
+
+            let image = document.getElementById("gato");
+            image.addEventListener("click", function (e) {
+                data.gatos[data.gatoActivo].nclicks++;
+                pintarContador(data.gatoActivo);
+            });
         </script>
     </body>
 </html>
