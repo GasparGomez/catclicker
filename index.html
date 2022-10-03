@@ -1,70 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cat Clicker</title>
-        <script src="funcions.js"></script>
+        <title>Cat Clicker v3</title>
+        <script>
+            let data = {
+                gatoActivo: 0,
+                gatos: [
+                    {
+                        name: "Ismael",
+                        content: "gato ismael gato ismael",
+                        image: "img/floppa.jpg",
+                        nclicks: 0
+                    },
+                    {
+                        name: "Oscar",
+                        content: "ole el oscar",
+                        image: "img/oscar.png",
+                        nclicks: 0
+                    },
+                    {
+                        name: "Fabian",
+                        content: "fabian mangui :)",
+                        image: "img/fabian.jpg",
+                        nclicks: 0
+                    },
+                    {
+                        name: "Gomi",
+                        content: "mapache",
+                        image: "img/gomielmapache.jpg",
+                        nclicks: 0
+                    }, {
+                        name: "Marti",
+                        content: "literalmente marti",
+                        image: "img/bingus.jpg",
+                        nclicks: 0
+                    }
+                ]
+            };
+        </script>
     </head>
     <body>
-        <ul>
-            <li id="c1">
-                <div class="cat1">
-                    <h1>Ismael</h1>
-                    <img src="img/floppa.jpg" alt="floppa" id="Ismael" onclick="addClick(id)" width="350px">
-                </div>
+        <ul id="llista"></ul>
+        <div id="gato">
+            <h1 id="nombreGato"></h1>
+            <img id="imgGato" width="350px">
+            <h3 id="contador"></h2>
+        </div>
 
-                <div id="contador1">
-                    Ismael: 0
-                </div>
-            </li>
-
-            <li id="c2">
-                <div class="cat2">
-                    <h1>Oscar</h1>
-                    <img src="img/oscar.png" alt="floppa" id="Oscar" onclick="addClick(id)" width="350px">
-                </div>
-
-                <div id="contador2">
-                    Oscar: 0
-                </div>
-            </li>
-
-            <li id="c3">
-                <div class="cat3">
-                    <h1>Fabian</h1>
-                    <img src="img/fabian.jpg" alt="floppa" id="Fabian" onclick="addClick(id)" width="350px">
-                </div>
-
-                <div id="contador3">
-                    Fabian: 0
-                </div>
-            </li>
-
-            <li id="c4">
-                <div class="cat4">
-                    <h1>Gomi el mapache</h1>
-                    <img src="img/gomielmapache.jpg" alt="floppa" id="Gomi" onclick="addClick(id)" width="350px">
-                </div>
-
-                <div id="contador4">
-                    Gomi: 0
-                </div>
-            </li>
-
-            <li id="c5">
-                <div class="cat5">
-                    <h1>Marti</h1>
-                    <img src="img/bingus.jpg" alt="floppa" id="Marti" onclick="addClick(id)" width="350px">
-                </div>
-
-                <div id="contador5">
-                    Marti: 0
-                </div>
-            </li>
-        </ul>
-
-
+        <script src="funcions.js"></script>
     </body>
 </html>
