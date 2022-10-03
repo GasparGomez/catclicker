@@ -7,6 +7,7 @@
         <title>Cat Clicker v3</title>
         <script>
             let data = {
+                gatoActivo:0,
                 gatos: [
                     {
                         name: "Ismael",
@@ -51,7 +52,7 @@
             function addCats() {
                 htmlStr = "";
                 for (let i = 0; i < data.gatos.length; i++) {
-                    htmlStr += `<li id="gato` + (i + 1).toString() + `">`;
+                    htmlStr += `<li id="${i}">`;
 
                     htmlStr += data.gatos[i].name;
 
@@ -62,23 +63,17 @@
             addCats();
 
             let gato = document.getElementById("llista");
-            let catActive = null;
+            
             gato.addEventListener("click", function (e) {
                 console.log(e);
                 console.log(e.target);
-                console.log(e.target.innerText);
-                catActive = e.target.innerText;
-                pintarCatActive(catActive);
+                console.log(e.target.id);
+                data.gatoActivo = e.target.id;
+                pintarCatActive();
             });
 
-            function pintarCatActive(gato) {
-                let idGato = null;
-
-                for (let i = 0; i < data.gatos.length; i++) {
-                    if (data.gatos[i].name == gato) {
-                        idGato = i;
-                    }
-                }
+            function pintarCatActive() {
+                let idGato = data.gatoActivo;
 
                 if (idGato != null) {
                     let image = document.getElementById("gato");
