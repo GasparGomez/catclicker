@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cat Clicker v3</title>
+        <script>
+            let data = {
+                gatos: [
+                    {
+                        name: "Ismael",
+                        content: "gato ismael gato ismael",
+                        image: "img/floppa.jpg",
+                        nclicks: 0
+                    },
+                    {
+                        name: "Oscar",
+                        content: "ole el oscar",
+                        image: "img/oscar.png",
+                        nclicks: 0
+                    },
+                    {
+                        name: "Fabian",
+                        content: "fabian mangui :)",
+                        image: "img/fabian.png",
+                        nclicks: 0
+                    },
+                    {
+                        name: "Gomi",
+                        content: "mapache",
+                        image: "img/gomielmapache.png",
+                        nclicks: 0
+                    }, {
+                        name: "Marti",
+                        content: "literalmente marti",
+                        image: "img/bingus.jpg",
+                        nclicks: 0
+                    }
+                ]
+            };
+        </script>
+    </head>
+    <body>
+        <ul id="llista"></ul>
+        <h1 id="nombreGato"></h1>
+        <h2 id="contador"></h2>
+        <img id="gato" alt="gato uwu">
+
+        <script>
+            function addCats() {
+                htmlStr = "";
+                for (let i = 0; i < data.gatos.length; i++) {
+                    htmlStr += `<li id="gato">`;
+
+                    htmlStr += data.gatos[i].name;
+
+                    htmlStr += `</li>`;
+                }
+                document.getElementById("llista").innerHTML = htmlStr;
+            }
+            addCats();
+        </script>
+    </body>
+</html>
