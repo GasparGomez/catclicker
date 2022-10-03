@@ -23,13 +23,13 @@
                     {
                         name: "Fabian",
                         content: "fabian mangui :)",
-                        image: "img/fabian.png",
+                        image: "img/fabian.jpg",
                         nclicks: 0
                     },
                     {
                         name: "Gomi",
                         content: "mapache",
-                        image: "img/gomielmapache.png",
+                        image: "img/gomielmapache.jpg",
                         nclicks: 0
                     }, {
                         name: "Marti",
@@ -44,14 +44,14 @@
     <body>
         <ul id="llista"></ul>
         <h1 id="nombreGato"></h1>
-        <h2 id="contador"></h2>
-        <img id="gato" alt="gato uwu">
+        <img id="gato" width="350px">
+        <h3 id="contador"></h2>
 
         <script>
             function addCats() {
                 htmlStr = "";
                 for (let i = 0; i < data.gatos.length; i++) {
-                    htmlStr += `<li id="gato">`;
+                    htmlStr += `<li id="gato` + (i + 1).toString() + `">`;
 
                     htmlStr += data.gatos[i].name;
 
@@ -60,6 +60,35 @@
                 document.getElementById("llista").innerHTML = htmlStr;
             }
             addCats();
+
+            let gato = document.getElementById("llista");
+            let catActive = null;
+            gato.addEventListener("click", function (e) {
+                console.log(e);
+                console.log(e.target);
+                console.log(e.target.innerText);
+                catActive = e.target.innerText;
+                pintarCatActive(catActive);
+            });
+
+            function pintarCatActive(gato) {
+                let idGato = null;
+
+                for (let i = 0; i < data.gatos.length; i++) {
+                    if (data.gatos[i].name == gato) {
+                        idGato = i;
+                    }
+                }
+
+                if (idGato != null) {
+                    let image = document.getElementById("gato");
+
+                    image.setAttribute("src", data.gatos[idGato].image);
+                    let contador = document.getElementById("contador").innerText = data.gatos[idGato].nclicks.toString();
+                }
+            }
+
+            document.getElementById("gato");
         </script>
     </body>
 </html>
