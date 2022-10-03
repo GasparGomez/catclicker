@@ -1,10 +1,10 @@
 let data = {
     gatos: [
-        { name: "Ismael", content: "lorem", image: "floppa.jpg", nclicks: 0 },
-        { name: "Oscar", content: "lorem2", image: "oscar.png", nclicks: 0 },
-        { name: "Fabian", content: "lorem2", image: "oscar.png", nclicks: 0 },
-        { name: "Gomi", content: "lorem2", image: "oscar.png", nclicks: 0 },
-        { name: "Marti", content: "lorem2", image: "bingus.jpg", nclicks: 0 }
+        { name: "Ismael", content: "lorem", image: "img/floppa.jpg", nclicks: 0 },
+        { name: "Oscar", content: "lorem2", image: "img/oscar.png", nclicks: 0 },
+        { name: "Fabian", content: "lorem2", image: "img/fabian.png", nclicks: 0 },
+        { name: "Gomi", content: "lorem2", image: "img/gomielmapache.png", nclicks: 0 },
+        { name: "Marti", content: "lorem2", image: "img/bingus.jpg", nclicks: 0 }
     ]
 };
 
