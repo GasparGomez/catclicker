@@ -29,6 +29,11 @@ let data = {
             content: "literalmente marti",
             image: "img/bingus.jpg",
             nclicks: 0
+        }, {
+            name: "Jaime",
+            content: "literalmente jaime",
+            image: "img/jaime.jpg",
+            nclicks: 0
         }
     ]
 };
