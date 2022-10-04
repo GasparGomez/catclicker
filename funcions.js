@@ -56,9 +56,7 @@ pintarCatActive();
 let gato = document.getElementById("llista");
 
 gato.addEventListener("click", function (e) {
-    // console.log(e);
-    // console.log(e.target);
-    // console.log(e.target.id);
+    console.log(e.target);
     data.gatoActivo = e.target.id;
     pintarCatActive();
 });
@@ -76,7 +74,7 @@ function pintarContador(idG) {
     let contador = document.getElementById("contador").innerText = data.gatos[idG].nclicks.toString();
 }
 
-let image = document.getElementById("gato");
+let image = document.getElementById("imgGato");
 image.addEventListener("click", function (e) {
     data.gatos[data.gatoActivo].nclicks++;
     pintarContador(data.gatoActivo);
