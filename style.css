@@ -1,15 +1,44 @@
 ul {
     background: #3399ff;
     padding: 20px;
-  }
-  
-  ul li {
+    width: 5cm;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 auto;
+    -webkit-box-shadow: 10px 10px 25px 0 rgba(143, 143, 143, 1);
+    -moz-box-shadow: 10px 10px 25px 0 rgba(143, 143, 143, 1);
+    box-shadow: 10px 10px 25px 0 rgba(143, 143, 143, 1);
+}
+
+ul li {
     background: #cce5ff;
     color: darkblue;
+    border-radius: 5px;
     margin: 5px;
-  }
+}
 
-  li:hover {
-    color:white;
+li:hover {
+    color: white;
     background: darkblue;
-  }
+}
+
+#gato {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color:#3399ff;
+    width: fit-content;
+    height: fit-content;
+    -webkit-box-shadow: 10px 10px 25px 0 rgba(143, 143, 143, 1);
+    -moz-box-shadow: 10px 10px 25px 0 rgba(143, 143, 143, 1);
+    box-shadow: 10px 10px 25px 0 rgba(143, 143, 143, 1);
+}
+
+#imgGato {
+    border-radius: 10px;
+}
+
+body {
+    background-image: url("img/catback.jpg");
+    font-family: 'Source Sans Pro', sans-serif;
+}
