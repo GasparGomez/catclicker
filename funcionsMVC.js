@@ -29,33 +29,55 @@ let data = {
             content: "literalmente marti",
             image: "img/bingus.jpg",
             nclicks: 0
+        }, {
+            name: "Jaime",
+            content: "literalmente jaime",
+            image: "img/jaime.jpg",
+            nclicks: 0
         }
     ]
 };
 
-var model = {
-    //si no estÃ¡ inicializado el localstorage lo arrancas
-    init: function() {
-        
+var model = { // si no estÃ¡ inicializado el localstorage lo arrancas
+    init: function () {
+        console.log("datos preparados");
     },
-    funcion2: function(obj) {
+    getGatos: function () {
+        return data.gatos;
+    },
+
+    setCatActive: function (n) {
+        data.gatoActivo = n;
+    },
+    getGatoActivo: function () {
+        return data.gatos[data.gatoActivo];
+    },
+    addClick: function () {
+        data.gatos[data.gatoActivo].nclicks ++;
     }
-
-
 };
 
 
 var controller = {
-    funcionXXX: function(noteStr) {
-        
-        view.render();
+    getGatos: function () {
+        return model.getGatos();
+    },
+    getGatoActivo: function () {
+        return model.getGatoActivo();
+    },
+    clickLista: function (ngato) {
+
+        model.setCatActive(ngato);
+        view.renderGatoActual();
     },
 
-    funcionYYY: function() {
-        
+    clickGato: function () {
+        model.addClick();
+        view.renderContador();
     },
 
-    init: function() {
+
+    init: function () {
         model.init();
         view.init();
     }
@@ -63,28 +85,51 @@ var controller = {
 
 
 var view = {
-    init: function() {
-        //Seleccionar los ids y llevarmelos a varaibles (opcional)
-        
+    // Demanar dades al controller
 
-        //Inicializar los eventos que hacer cuando pase...
+    init: function () { // 1. Pintar llista
+        gatos = controller.getGatos();
+        htmlStr = "";
+        for (let i = 0; i < gatos.length; i++) {
+            htmlStr += `<li id="${i}">`;
 
-        //Llamar a la funcion que pinta la lista (render)
-        //Llamar a la funcion que pinta el gato actual (render)
-        
-        view.render();
-    },
-    renderGato: function(){
-        //Generar dinamicamente el codigo html             
-        var htmlStr = '';
-        //Recordad que para acceder a datos hablamos con el controller
-        controller.getNotes().forEach(function(note){
-            htmlStr += '<li class="note">'+
-                    note.content +
-                '</li>';
+            htmlStr += gatos[i].name;
+
+            htmlStr += `</li>`;
+        }
+        document.getElementById("llista").innerHTML = htmlStr;
+
+        //2 .poner listenr de lista 
+        document.getElementById("llista").addEventListener("click", function (e) {
+            console.log(e.target);
+            n = e.target.id;
+            controller.clickLista(n);
+            
         });
-        this.noteList.html( htmlStr );
+
+        //3. pongo el listener del gato
+        document.getElementById("imgGato").addEventListener("click", function () {
+            controller.clickGato();
+        });
+
+    },
+
+    renderContador: function () {
+        let gatoActual = controller.getGatoActivo();
+        document.getElementById("contador").innerText = gatoActual.nclicks.toString();
+    },
+
+    renderGatoActual: function () {
+
+        let gatoActual = controller.getGatoActivo();
+        let image = document.getElementById("imgGato");
+
+        image.setAttribute("src", gatoActual.image);
+        document.getElementById("nombreGato").innerText = gatoActual.name;
+
+        view.renderContador();
     }
+
 };
 
 controller.init();
